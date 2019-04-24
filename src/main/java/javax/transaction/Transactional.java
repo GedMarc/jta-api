@@ -16,8 +16,6 @@
 
 package javax.transaction;
 
-import javax.enterprise.util.Nonbinding;
-import javax.interceptor.InterceptorBinding;
 import java.lang.annotation.*;
 
 /**
@@ -55,7 +53,6 @@ import java.lang.annotation.*;
  * @since JTA1.2
  */
 @Inherited
-@InterceptorBinding
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(value = RetentionPolicy.RUNTIME)
 public @interface Transactional {
@@ -139,7 +136,7 @@ public @interface Transactional {
      *  are specified, dontRollbackOn takes precedence.
      * @return Class[] of Exceptions
      */
-    @Nonbinding
+
     public Class[] rollbackOn() default {};
 
     /**
@@ -151,7 +148,7 @@ public @interface Transactional {
      *  are specified, dontRollbackOn takes precedence.
      * @return Class[] of Exceptions
      */
-    @Nonbinding
+
     public Class[] dontRollbackOn() default {};
 
 }
